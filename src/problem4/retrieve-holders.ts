@@ -18,6 +18,7 @@ const abi = [
 ];
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
+// @ts-ignore
 async function retrieveHolders() {
   const decimals = await contract.decimals();
 
@@ -25,6 +26,6 @@ async function retrieveHolders() {
     let balance = await contract.balanceOf(addresses[i]);
     console.log(`${addresses[i]} ${formatUnits(balance, decimals)}`);
   }
-}
+};
 
 retrieveHolders();
